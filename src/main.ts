@@ -1,3 +1,73 @@
+// ---- Typewriter effect ----
+const typewriterEl = document.querySelector(".typewriter-text");
+if (typewriterEl) {
+  interface Phrase {
+    plain: string;       // plain text for character counting
+    build: (len: number) => string;  // returns HTML for first `len` chars
+  }
+
+  function makePhrase(before: string, highlight: string, after: string): Phrase {
+    const plain = before + highlight + after;
+    return {
+      plain,
+      build(len: number) {
+        let out = "";
+        const bLen = before.length;
+        const hLen = highlight.length;
+        if (len <= bLen) {
+          out = before.slice(0, len);
+        } else if (len <= bLen + hLen) {
+          out = before + '<span class="text-gradient">' + highlight.slice(0, len - bLen) + "</span>";
+        } else {
+          out = before + '<span class="text-gradient">' + highlight + "</span>" + after.slice(0, len - bLen - hLen);
+        }
+        return out.replace(/\n/g, "<br />");
+      },
+    };
+  }
+
+  const phrases: Phrase[] = [
+    makePhrase("Bring ", "Bitcoin", "\nto your app in minutes"),
+    makePhrase("Bring your app\n", "Onchain", " in minutes"),
+    makePhrase("The complete\n", "Money Toolkit", " for your app"),
+  ];
+  const typeSpeed = 40;
+  const eraseSpeed = 25;
+  const holdTime = 3000;
+  let phraseIdx = 0;
+
+  async function sleep(ms: number) {
+    return new Promise((r) => setTimeout(r, ms));
+  }
+
+  async function typePhrase(phrase: Phrase) {
+    for (let i = 0; i <= phrase.plain.length; i++) {
+      typewriterEl!.innerHTML = phrase.build(i);
+      await sleep(typeSpeed);
+    }
+  }
+
+  async function erasePhrase(phrase: Phrase) {
+    for (let i = phrase.plain.length; i >= 0; i--) {
+      typewriterEl!.innerHTML = phrase.build(i);
+      await sleep(eraseSpeed);
+    }
+  }
+
+  async function loop() {
+    while (true) {
+      const p = phrases[phraseIdx];
+      await typePhrase(p);
+      await sleep(holdTime);
+      await erasePhrase(p);
+      await sleep(300);
+      phraseIdx = (phraseIdx + 1) % phrases.length;
+    }
+  }
+
+  loop();
+}
+
 // ---- Copy button ----
 const NPM_CMD = "npm install starkzap";
 const copyBtn = document.getElementById("copy-btn");

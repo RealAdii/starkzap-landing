@@ -22,14 +22,10 @@
     <meta name="twitter:description" content="The complete money toolkit for your app. Bitcoin, stablecoins, swaps, bridging, lending, and confidential transfers on Starknet." />
     <meta name="twitter:image" content="https://starkzap.io/og-image.png" />
 
-    <!-- Self-hosted fonts -->
-    <style>
-      @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/inter-400.woff2') format('woff2'); }
-      @font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/space-grotesk-400.woff2') format('woff2'); }
-      @font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/space-grotesk-500.woff2') format('woff2'); }
-      @font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/space-grotesk-600.woff2') format('woff2'); }
-    </style>
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/space-grotesk-500.woff2" crossorigin />
+    <!-- Google Fonts: Manrope, Cabin, Instrument Serif, Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Instrument+Serif&family=Inter:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="/src/style.css" />
 
@@ -108,34 +104,40 @@
     <!-- Scanline overlay for vintage CRT feel -->
     <div class="scanlines" aria-hidden="true"></div>
 
-    <main class="page">
-      <!-- Hero -->
-      <section class="hero">
-        <div class="hero-badge">
-          <img src="/logo.webp" alt="Starkzap logo" width="56" height="56" fetchpriority="high" />
-          <span class="hero-brand">Starkzap</span>
-        </div>
-        <h1 class="hero-title">
-          Bring <span class="text-gradient">Bitcoin</span> to your app in minutes
-        </h1>
-        <p class="hero-sub">
-          The complete money toolkit for your app. Wallets, Gasless Transactions, Staking, Swaps, Bridging, Lending, and Confidential Transfers on Starknet in a few lines of code.
-        </p>
-        <div class="hero-cta">
-          <div class="code-block-wrap">
-            <code id="npm-cmd" class="code-block">npm install starkzap</code>
-            <button type="button" id="copy-btn" class="copy-btn" title="Copy command">Copy</button>
+    <!-- Full-screen Video Hero -->
+    <section class="video-hero">
+      <video class="video-hero-bg" autoplay loop muted playsinline>
+        <source src="/hero-bg.mp4" type="video/mp4" />
+      </video>
+      <div class="video-hero-content">
+        <div class="video-hero-center">
+          <div class="hero-logo">
+            <img src="/logo-icon.png" alt="Starkzap logo" class="hero-logo-icon" width="48" height="48" fetchpriority="high" />
+            <img src="/logo-text.png" alt="Starkzap" class="hero-logo-text" height="32" />
           </div>
-          <div class="cta-links">
-            <a href="https://docs.starknet.io/build/starkzap/overview" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Read the docs</a>
-            <a href="https://github.com/keep-starknet-strange/starkzap" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" aria-label="Starkzap on GitHub">
-              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              GitHub
-            </a>
+          <h1 class="video-hero-title" id="hero-typewriter">
+            <span class="typewriter-text"></span><span class="typewriter-cursor">|</span>
+          </h1>
+          <p class="video-hero-sub">
+            The complete money toolkit for your app. Wallets, Gasless Transactions, Staking, Swaps, Bridging, Lending, and Confidential Transfers on Starknet in a few lines of code.
+          </p>
+          <div class="video-hero-cta">
+            <div class="code-block-wrap">
+              <code id="npm-cmd" class="code-block">npm install starkzap</code>
+              <button type="button" id="copy-btn" class="copy-btn" title="Copy command">Copy</button>
+            </div>
+            <div class="cta-links">
+              <a href="https://docs.starknet.io/build/starkzap/overview" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Read the docs</a>
+              <a href="https://github.com/keep-starknet-strange/starkzap" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" aria-label="Starkzap on GitHub">
+                <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+              <a href="https://t.me/+U02p88SRiitmMGU0" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Builders Chat</a>
+            </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
     <!-- Full-bleed ticker -->
     <section class="ticker-section" aria-label="Ecosystem partners">
@@ -165,90 +167,20 @@
     </section>
 
     <main class="page">
-      <!-- Features -->
-      <section class="features" aria-label="Features">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <img src="/gasless.webp" alt="Gasless transactions" width="364" height="317" loading="lazy" />
-          </div>
-          <h2>Gasless Transactions</h2>
-          <p>Your users never pay gas. Paymaster handles it all, provided by AVNU and Cartridge.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon feature-icon-duo">
-            <img src="/google.webp" alt="Google login" width="291" height="317" loading="lazy" />
-            <img src="/apple.webp" alt="Apple login" width="344" height="311" loading="lazy" />
-          </div>
-          <h2>Social Login</h2>
-          <p>Google. Apple. Passkeys. No seed phrases ever, thanks to Privy and Cartridge.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <img src="/btc_logo.webp" alt="Bitcoin" width="397" height="400" loading="lazy" />
-          </div>
-          <h2>Bitcoin Staking</h2>
-          <p>Let your users earn yield on BTC, USDC, and STRK. In a few lines of code.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <img src="/mobile.webp" alt="Mobile support" width="454" height="330" loading="lazy" />
-          </div>
-          <h2>Cross-Platform</h2>
-          <p>Available for Web, Android, and iOS. One SDK, every platform.</p>
-        </div>
-      </section>
-
-      <!-- More features -->
+      <!-- Money Toolkit -->
       <section class="more-features">
-        <h2 class="section-title">Complete <span class="text-gradient">Money Tools</span> for your app</h2>
+        <h2 class="section-title">Complete <span class="text-gradient">Money Toolkit</span> for your app in minutes</h2>
         <p class="section-desc">Wallets, bridging, swaps, DCA, lending, and confidential transfers. One SDK, every money primitive your app needs.</p>
 
-        <div class="toolkit-grid">
-          <div class="toolkit-card">
-            <img src="/illust-bridge.webp" alt="Cross-chain bridging illustration" class="toolkit-img" width="805" height="675" loading="lazy" />
-            <h3>Cross-Chain Bridging</h3>
-            <p>Move assets from Ethereum, Solana, and other chains into Starknet in one tap.</p>
-            <div class="toolkit-powered"><a href="https://layerzero.network/" target="_blank" rel="noopener noreferrer">LayerZero (CCTP)</a> <a href="https://www.hyperlane.xyz/" target="_blank" rel="noopener noreferrer">Hyperlane</a> <a href="https://starkgate.starknet.io/" target="_blank" rel="noopener noreferrer">StarkGate</a></div>
-          </div>
-
-          <div class="toolkit-card">
-            <img src="/illust-swap.webp" alt="Token swapping illustration" class="toolkit-img" width="948" height="674" loading="lazy" />
-            <h3>Token Swaps</h3>
-            <p>Exchange any token with best-price execution across Starknet's top DEXes.</p>
-            <div class="toolkit-powered"><a href="https://www.avnu.fi/" target="_blank" rel="noopener noreferrer">AVNU</a> <a href="https://www.ekubo.org/" target="_blank" rel="noopener noreferrer">Ekubo</a></div>
-          </div>
-
-          <div class="toolkit-card">
-            <img src="/illust-dca.webp" alt="Dollar-cost averaging illustration" class="toolkit-img" width="602" height="603" loading="lazy" />
-            <h3>Dollar-Cost Averaging</h3>
-            <p>Schedule recurring buys — daily, weekly, or monthly. Set it once, the SDK handles execution at market price on schedule.</p>
-            <div class="toolkit-powered"><a href="https://www.avnu.fi/" target="_blank" rel="noopener noreferrer">AVNU</a> <a href="https://www.ekubo.org/" target="_blank" rel="noopener noreferrer">Ekubo</a></div>
-          </div>
-
-          <div class="toolkit-card">
-            <img src="/illust-lending.webp" alt="Lending and borrowing illustration" class="toolkit-img" width="1088" height="542" loading="lazy" />
-            <h3>Lending & Borrowing</h3>
-            <p>Full lending lifecycle: supply assets to earn yield, borrow against collateral, withdraw, and repay.</p>
-            <div class="toolkit-powered"><a href="https://vesu.xyz/" target="_blank" rel="noopener noreferrer">Vesu</a></div>
-          </div>
-
-          <div class="toolkit-card toolkit-card-wide">
-            <div class="toolkit-wide-content">
-              <h3>Confidential Transfers</h3>
-              <p>Privacy mode, activated. Transfer tokens with shielded balances, stealth addresses, and zero-knowledge proof verification.</p>
-              <div class="toolkit-powered"><a href="https://tongo.cash/" target="_blank" rel="noopener noreferrer">Tongo.cash</a></div>
-            </div>
-            <img src="/illust-privacy.webp" alt="Confidential transfers illustration" class="toolkit-img-side" width="477" height="498" loading="lazy" />
-          </div>
-        </div>
+        <img src="/toolkit-grid.png" alt="Starkzap toolkit features: Swap, Lend & Borrow, Gasless Transactions, Social Login, Bitcoin Staking, DCA, Bridge, and Confidential Transfers" class="toolkit-grid-img" loading="lazy" />
       </section>
 
       <!-- Comparison — toggle -->
       <section class="comparison">
         <h2 class="section-title">What does shipping look like?</h2>
         <div class="compare-toggle">
-          <button class="toggle-btn active" data-view="with" type="button">With Starkzap</button>
           <button class="toggle-btn" data-view="without" type="button">Without Starkzap</button>
+          <button class="toggle-btn active" data-view="with" type="button">With Starkzap</button>
         </div>
 
         <div class="compare-view active" id="view-with">
@@ -302,10 +234,8 @@
 
       <!-- Social proof -->
       <section class="social-proof">
-        <div class="big-stat">
-          <span class="big-stat-number">61</span>
-          <span class="big-stat-label">projects shipping with Starkzap</span>
-        </div>
+        <h2 class="section-title">See who's building on <span class="text-gradient">Starkzap</span></h2>
+        <p class="section-desc">60+ projects shipped already</p>
         <div class="avatar-wall">
           <div class="avatar-grid">
             <a href="https://github.com/keep-starknet-strange/alexandria" target="_blank" rel="noopener noreferrer" class="avatar-link" title="keep-starknet-strange"><img src="https://avatars.githubusercontent.com/u/118723009?v=4&s=64" alt="keep-starknet-strange" width="48" height="48" loading="lazy" /></a>
@@ -376,6 +306,29 @@
           <svg class="x-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           Follow @Starknet for updates
         </a>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq-section">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Who can build on Starkzap?</summary>
+            <p>Anyone with access to the internet can now ship products in minutes.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do my users need to know anything about web3?</summary>
+            <p>Not at all. Starkzap abstracts away wallets, gas fees, and blockchain complexity. Your users get a familiar web2 experience while you get the benefits of onchain infrastructure.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I bridge tokens from other chains?</summary>
+            <p>Absolutely. Starkzap makes cross-chain bridging effortless. Move tokens from Ethereum, Solana, and other chains onto Starknet with just a few lines of code.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How easy are swaps?</summary>
+            <p>Insanely easy. One function call and you're done. Starkzap routes through AVNU and Ekubo to guarantee the best price every time. No manual DEX hunting required.</p>
+          </details>
+        </div>
       </section>
 
       <!-- Footer -->
